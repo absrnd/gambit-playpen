@@ -31,8 +31,11 @@
   (if (< length 1)
       '()
       (cons (random-integer 8)
-	    (random-row (- length 1)))))
+	    (rand-row (- length 1)))))
 
 (define (display-pattern size)
   "output a random colour checker pattern of given size"
-  (letrec ((
+  (let loop ((i 0))
+    (row (rand-row size))
+    (if (< i size)
+	(loop (+ i 1)))))

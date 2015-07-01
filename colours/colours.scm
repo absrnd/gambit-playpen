@@ -25,6 +25,26 @@
     (reset-ANSI)
     (display "\n")))
 
+;; -----------------------------------------------------------
+;; display a generic sprite (a list of lists)
+(define (display-sprite sprite)
+  (for-each row sprite))
+
+;; -----------------------------------------------------------
+;; test sprite which is not even rectangular!
+(define sprite '((1 2 3) (4 5 6 4) (1 2 3 4 5)))
+
+;; 8x8 checkerboard
+(define checkerboard '((0 7 0 7 0 7 0 7)
+		       (7 0 7 0 7 0 7 0)
+		       (0 7 0 7 0 7 0 7)
+		       (7 0 7 0 7 0 7 0)
+		       (0 7 0 7 0 7 0 7)
+		       (7 0 7 0 7 0 7 0)
+		       (0 7 0 7 0 7 0 7)
+		       (7 0 7 0 7 0 7 0)))
+
+;; -----------------------------------------------------------
 ;; create a row-list of length >0 containing random colours
 (define (rand-row length)
   (if (< length 1)
@@ -38,3 +58,5 @@
     (row (rand-row size))
     (if (< i size)
 	(loop (+ i 1)))))
+;; -----------------------------------------------------------
+
